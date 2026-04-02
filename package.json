@@ -1,0 +1,15 @@
+{
+  "name": "fiastara-portfolio-starter",
+  "version": "1.0.0",
+  "description": "Express starter for portfolio examples",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2"
+  }
+}
