@@ -1,0 +1,336 @@
+﻿/* CSS Variables for Color Palette */
+:root {
+    --primary-color: #95292D;
+    --secondary-color: #E2B0A5;
+    --accent-color: #6D3871;
+    --dark-color: #1A3567;
+    --light-bg: #ffffff;
+    --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Navbar Logo Fix */
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    padding: 0;
+}
+
+.logo-img {
+    height: 45px;
+    width: auto;
+    display: block;
+    object-fit: contain;
+}
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--dark-color);
+    background-color: var(--light-bg);
+}
+
+h1, h2, h3 {
+    margin-bottom: 1rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+/* Header and Navigation */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(149, 41, 45, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: var(--shadow);
+    z-index: 1000;
+    transition: background 0.3s ease;
+}
+
+header:hover {
+    background: rgba(149, 41, 45, 0.2);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}
+
+nav ul li {
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    color: #95292D;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s, opacity 0.3s;
+}
+
+nav ul li a:hover {
+    color: #95292D;
+    opacity: 0.7;
+}
+
+/* Sections */
+section {
+    padding: 5rem 2rem;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    max-width: 1200px;
+    width: 100%;
+}
+
+#hero img {
+    object-fit: cover;
+    aspect-ratio: 1/1;
+    border: 5px solid white;
+}
+
+@media (max-width: 768px) {
+    #hero {
+        text-align: center;
+        padding-top: 50px;
+    }
+    .navbar-nav {
+        background: #212529;
+        padding: 1rem;
+        border-radius: 8px;
+    }
+}
+
+#hero {
+    background: linear-gradient(135deg, var(--secondary-color), var(--light-bg));
+    text-align: center;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--primary-color);
+    color: var(--light-bg);
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: var(--accent-color);
+}
+
+/* Experience Section */
+#experience .experience-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.experience-card {
+    background-color: var(--light-bg);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s;
+}
+
+.experience-card:hover {
+    transform: translateY(-5px);
+}
+
+.experience-card h3 {
+    color: var(--primary-color);
+}
+
+/* Skills Section */
+#skills .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.skill-category h3 {
+    color: var(--accent-color);
+}
+
+.skill-category ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.skill-category li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--secondary-color);
+}
+
+/* Projects Section */
+.project-section {
+    display: block;
+    min-height: auto;
+    background: linear-gradient(180deg, rgba(229,176,165,0.12), rgba(255,255,255,0.95));
+}
+
+#projectCards .card {
+    background-color: var(--light-bg);
+    border: none;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s;
+}
+
+.project-detail-section,
+.add-project-section {
+    min-height: auto;
+    background: linear-gradient(135deg, rgba(226,176,165,0.3), rgba(255,255,255,0.95));
+}
+
+.project-detail-section .bg-light,
+.add-project-section .bg-light {
+    border-radius: 20px;
+}
+
+#error-message,
+#formError {
+    margin-bottom: 1rem;
+}
+
+.form-label {
+    font-weight: 600;
+    color: var(--dark-color);
+}
+
+#projectCards .card:hover {
+    transform: translateY(-5px);
+}
+
+.project-summary {
+    color: var(--dark-color);
+    font-size: 0.95rem;
+}
+
+.tech-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-right: 0.35rem;
+    margin-bottom: 0.35rem;
+}
+
+/* Portfolio Section */
+#portfolio .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.portfolio-card {
+    background-color: var(--light-bg);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-5px);
+}
+
+.portfolio-card h3 {
+    color: var(--primary-color);
+}
+
+.project-link {
+    display: inline-block;
+    margin-top: 1rem;
+}
+
+#education .education-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.education-card {
+    background-color: var(--light-bg);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+}
+
+.education-card h3 {
+    color: var(--primary-color);
+}
+
+#contact form {
+    display: grid;
+    gap: 1rem;
+    max-width: 600px;
+}
+
+#contact input,
+#contact textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--secondary-color);
+    border-radius: 0.5rem;
+}
+
+#contact button {
+    width: fit-content;
+    background-color: var(--primary-color);
+    color: var(--light-bg);
+    border: none;
+    padding: 0.75rem 1.5rem;
+}
+
+footer {
+    background-color: var(--dark-color);
+    color: var(--light-bg);
+}
+
+@media (max-width: 768px) {
+    .add-project-section,
+    .project-section,
+    #portfolio,
+    #education,
+    #contact {
+        padding: 3rem 1rem;
+    }
+
+    .form-control {
+        font-size: 0.9rem;
+    }
+
+    #projects .project-summary,
+    #projectSummary {
+        text-align: left;
+    }
+}

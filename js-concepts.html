@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Concepts - Interactive Demo</title>
+    <link rel="stylesheet" href="style/style.css">
+    <style>
+        .demo-section {
+            background-color: white;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .demo-section h3 {
+            color: #A82323;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .code-block {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #A82323;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            line-height: 1.6;
+        }
+
+        .code-block code {
+            color: #66d9ef;
+        }
+
+        .keyword { color: #f92672; }
+        .function { color: #a6e22e; }
+        .string { color: #e6db74; }
+        .number { color: #ae81ff; }
+
+        .output-block {
+            background-color: #FFF4EA;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid #6D9E51;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: #492828;
+        }
+
+        .interactive-demo {
+            background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 2px solid #f0f0f0;
+        }
+
+        .demo-input {
+            padding: 0.75rem;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            margin: 0.5rem 0;
+            width: 100%;
+            max-width: 100%;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .demo-input:focus {
+            outline: none;
+            border-color: #A82323;
+            box-shadow: 0 0 10px rgba(168, 35, 35, 0.1);
+        }
+
+        .demo-button {
+            background-color: #A82323;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 0.5rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .demo-button:hover {
+            background-color: #6D9E51;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(106, 158, 81, 0.3);
+        }
+
+        .demo-button:active {
+            transform: translateY(0);
+        }
+
+        .demo-output {
+            margin-top: 1rem;
+            padding: 1.5rem;
+            background-color: #FFF4EA;
+            border-radius: 8px;
+            min-height: 50px;
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.8;
+        }
+
+        .success-message {
+            color: #6D9E51;
+            font-weight: 600;
+        }
+
+        .error-message {
+            color: #A82323;
+            font-weight: 600;
+        }
+
+        .concept-tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .concept-tab {
+            padding: 0.75rem 1.5rem;
+            background-color: #f0f0f0;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .concept-tab.active {
+            background-color: #A82323;
+            color: white;
+            border-color: #6D9E51;
+        }
+
+        .concept-tab:hover {
+            background-color: #A82323;
+            color: white;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-bottom: 2rem;
+            padding: 0.75rem 1.5rem;
+            background-color: #6D9E51;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #A82323;
+            transform: translateY(-2px);
+        }
+
+        .visual-diagram {
+            background-color: #f5f5f5;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            margin: 1rem 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+            overflow-x: auto;
+            border: 2px dashed #A82323;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: #A82323;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .learning-path {
+            background: linear-gradient(135deg, #FFF4EA 0%, #f9f9f9 100%);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            border-left: 4px solid #6D9E51;
+        }
+
+        .learning-path h4 {
+            color: #A82323;
+            margin-bottom: 1rem;
+        }
+
+        .learning-path ol {
+            margin-left: 1.5rem;
+            color: #492828;
+        }
+
+        .learning-path li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo-removebg">
+                <img src="src/logo-removebg.jpg" alt="Fiastara logo-removebg">
+            </div>
+            <ul>
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About Me</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#skills">Skills</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section style="max-width: 1200px; margin: 100px auto 0; padding: 40px 2rem;">
+        
+        <h1 style="font-family: 'Playfair Display', serif; font-size: 3rem; color: #492828; margin-bottom: 1rem;">
+            JavaScript Concepts
+        </h1>
+        <p style="font-size: 1.1rem; color: #492828; margin-bottom: 3rem;">
+            Interactive demonstrations of Array Methods, Callbacks, and Functional Programming
+        </p>
+
+        <!-- ARRAY METHODS SECTION -->
+        <div class="demo-section">
+            <h3>1️⃣ Array Methods (Map, Filter, Reduce)</h3>
+            
+            <div class="concept-tabs">
+                <button class="concept-tab active" onclick="showArrayMethod('map', event)">Map</button>
+                <button class="concept-tab" onclick="showArrayMethod('filter', event)">Filter</button>
+                <button class="concept-tab" onclick="showArrayMethod('reduce', event)">Reduce</button>
+            </div>
+
+            <!-- MAP DEMO -->
+            <div id="map-demo" class="demo-content">
+                <p><strong>MAP:</strong> Transform each element in an array and return a new array</p>
+                
+                <div class="code-block">
+// Double each number
+const numbers = [1, 2, 3, 4, 5];
+const doubled = numbers.map(num => num * 2);
+// Result: [2, 4, 6, 8, 10]
+                </div>
+
+                <div class="interactive-demo">
+                    <label>Enter numbers (comma-separated):</label>
+                    <input type="text" class="demo-input" id="mapInput" value="1,2,3,4,5" placeholder="e.g., 1,2,3,4,5">
+                    
+                    <label>Multiply by:</label>
+                    <input type="number" class="demo-input" id="mapFactor" value="2" min="1">
+                    
+                    <button class="demo-button" onclick="runMapDemo()">Run Map</button>
+                    
+                    <div class="demo-output" id="mapOutput"></div>
+                </div>
+            </div>
+
+            <!-- FILTER DEMO -->
+            <div id="filter-demo" class="demo-content" style="display:none;">
+                <p><strong>FILTER:</strong> Keep only elements that pass a condition</p>
+                
+                <div class="code-block">
+// Keep only even numbers
+const numbers = [1, 2, 3, 4, 5, 6];
+const evens = numbers.filter(num => num % 2 === 0);
+// Result: [2, 4, 6]
+                </div>
+
+                <div class="interactive-demo">
+                    <label>Enter numbers (comma-separated):</label>
+                    <input type="text" class="demo-input" id="filterInput" value="1,2,3,4,5,6,7,8,9,10" placeholder="e.g., 1,2,3,4,5">
+                    
+                    <label>Minimum value:</label>
+                    <input type="number" class="demo-input" id="filterMin" value="5" min="0">
+                    
+                    <button class="demo-button" onclick="runFilterDemo()">Run Filter</button>
+                    
+                    <div class="demo-output" id="filterOutput"></div>
+                </div>
+            </div>
+
+            <!-- REDUCE DEMO -->
+            <div id="reduce-demo" class="demo-content" style="display:none;">
+                <p><strong>REDUCE:</strong> Combine all elements into a single value</p>
+                
+                <div class="code-block">
+// Sum all numbers
+const numbers = [1, 2, 3, 4, 5];
+const sum = numbers.reduce((total, num) => total + num, 0);
+// Result: 15
+                </div>
+
+                <div class="interactive-demo">
+                    <label>Enter numbers (comma-separated):</label>
+                    <input type="text" class="demo-input" id="reduceInput" value="1,2,3,4,5" placeholder="e.g., 1,2,3,4,5">
+                    
+                    <label>Operation:</label>
+                    <select class="demo-input" id="reduceOp" style="max-width: 100%;">
+                        <option value="sum">Sum (+)</option>
+                        <option value="multiply">Multiply (*)</option>
+                        <option value="concat">Concatenate</option>
+                    </select>
+                    
+                    <button class="demo-button" onclick="runReduceDemo()">Run Reduce</button>
+                    
+                    <div class="demo-output" id="reduceOutput"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CALLBACKS SECTION -->
+        <div class="demo-section">
+            <h3>2️⃣ Callback Functions</h3>
+            
+            <p><strong>CALLBACK:</strong> A function passed to another function, executed later</p>
+            
+            <div class="code-block">
+// Simple callback
+function greet(name, callback) {
+    callback(`Hello, ${name}!`);
+}
+
+greet('Fiastara', (message) => console.log(message));
+// Output: Hello, Fiastara!
+            </div>
+
+            <div class="interactive-demo">
+                <label>Enter your name:</label>
+                <input type="text" class="demo-input" id="callbackInput" placeholder="e.g., Fiastara">
+                
+                <button class="demo-button" onclick="runCallbackDemo()">Run Callback</button>
+                
+                <div class="demo-output" id="callbackOutput"></div>
+            </div>
+
+            <p style="margin-top: 1.5rem; color: #492828;"><strong>Real-world example:</strong> Form submission</p>
+            
+            <div class="interactive-demo">
+                <label>Name:</label>
+                <input type="text" class="demo-input" id="formName" placeholder="Enter name">
+                
+                <label>Email:</label>
+                <input type="email" class="demo-input" id="formEmail" placeholder="Enter email">
+                
+                <button class="demo-button" onclick="runFormCallback()">Submit Form</button>
+                
+                <div class="demo-output" id="formOutput"></div>
+            </div>
+        </div>
+
+        <!-- FUNCTIONAL PROGRAMMING SECTION -->
+        <div class="demo-section">
+            <h3>3️⃣ Functional Programming Concepts</h3>
+            
+            <div class="concept-tabs">
+                <button class="concept-tab active" onclick="showFPConcept('pure', event)">Pure Functions</button>
+                <button class="concept-tab" onclick="showFPConcept('composition', event)">Composition</button>
+                <button class="concept-tab" onclick="showFPConcept('currying', event)">Currying</button>
+            </div>
+
+            <!-- PURE FUNCTIONS -->
+            <div id="pure-demo" class="demo-content">
+                <p><strong>PURE FUNCTIONS:</strong> Same input always produces same output, no side effects</p>
+                
+                <div class="code-block">
+// Pure function - always returns same result
+function add(a, b) {
+    return a + b;
+}
+console.log(add(5, 3)); // Always 8
+                </div>
+
+                <div class="interactive-demo">
+                    <label>Number A:</label>
+                    <input type="number" class="demo-input" id="pureA" value="10">
+                    
+                    <label>Number B:</label>
+                    <input type="number" class="demo-input" id="pureB" value="5">
+                    
+                    <button class="demo-button" onclick="runPureFunctionDemo()">Add (Pure)</button>
+                    
+                    <div class="demo-output" id="pureOutput"></div>
+                </div>
+            </div>
+
+            <!-- COMPOSITION -->
+            <div id="composition-demo" class="demo-content" style="display:none;">
+                <p><strong>FUNCTION COMPOSITION:</strong> Combine multiple functions</p>
+                
+                <div class="code-block">
+const pipe = (...fns) => (x) => fns.reduce((v, f) => f(v), x);
+const add10 = (x) => x + 10;
+const double = (x) => x * 2;
+
+const process = pipe(add10, double);
+console.log(process(5)); // (5 + 10) * 2 = 30
+                </div>
+
+                <div class="interactive-demo">
+                    <label>Starting number:</label>
+                    <input type="number" class="demo-input" id="composeNum" value="5">
+                    
+                    <button class="demo-button" onclick="runCompositionDemo()">Execute Pipeline</button>
+                    
+                    <div class="demo-output" id="composeOutput"></div>
+                </div>
+
+                <div class="visual-diagram">
+Input: 5
+   ↓
+Add 10 → 15
+   ↓
+Multiply by 2 → 30
+   ↓
+Output: 30
+                </div>
+            </div>
+
+            <!-- CURRYING -->
+            <div id="currying-demo" class="demo-content" style="display:none;">
+                <p><strong>CURRYING:</strong> Break function into chain of single-argument functions</p>
+                
+                <div class="code-block">
+// Regular function
+function multiply(a, b, c) {
+    return a * b * c;
+}
+
+// Curried version
+const curry = (a) => (b) => (c) => a * b * c;
+const byTwo = curry(2);
+const byTwoByThree = byTwo(3);
+console.log(byTwoByThree(4)); // 2 * 3 * 4 = 24
+                </div>
+
+                <div class="interactive-demo">
+                    <label>First number:</label>
+                    <input type="number" class="demo-input" id="curry1" value="2">
+                    
+                    <label>Second number:</label>
+                    <input type="number" class="demo-input" id="curry2" value="3">
+                    
+                    <label>Third number:</label>
+                    <input type="number" class="demo-input" id="curry3" value="4">
+                    
+                    <button class="demo-button" onclick="runCurryingDemo()">Execute Curried Multiply</button>
+                    
+                    <div class="demo-output" id="curryOutput"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- REAL-WORLD EXAMPLE -->
+        <div class="demo-section">
+            <h3>⚙️ Advanced Concepts</h3>
+            
+            <div class="concept-tabs">
+                <button class="concept-tab active" onclick="showAdvanced('arrow', event)">Arrow Functions</button>
+                <button class="concept-tab" onclick="showAdvanced('spread', event)">Spread Operator</button>
+                <button class="concept-tab" onclick="showAdvanced('template', event)">Template Literals</button>
+                <button class="concept-tab" onclick="showAdvanced('defaults', event)">Default Params</button>
+            </div>
+
+            <!-- ARROW FUNCTIONS -->
+            <div id="arrow-demo" class="demo-content">
+                <p><strong>ARROW FUNCTIONS:</strong> Concise syntax for writing functions with implicit return</p>
+                
+                <div class="code-block">
+// Regular function
+function add(a, b) { return a + b; }
+
+// Arrow function equivalent
+const addArrow = (a, b) => a + b;
+
+// With destructuring
+const users = [{name: 'John', age: 30}, {name: 'Jane', age: 28}];
+const names = users.map(({name}) => name);
+                </div>
+
+                <div class="interactive-demo">
+                    <label>Enter two numbers:</label>
+                    <input type="number" class="demo-input" id="arrow1" value="10">
+                    <input type="number" class="demo-input" id="arrow2" value="5">
+                    
+                    <button class="demo-button" onclick="runArrowDemo()">Test Arrow Functions</button>
+                    
+                    <div class="demo-output" id="arrowOutput"></div>
+                </div>
+            </div>
+
+            <!-- SPREAD OPERATOR -->
+            <div id="spread-demo" class="demo-content" style="display:none;">
+                <p><strong>SPREAD OPERATOR:</strong> Expand elements in arrays/objects</p>
+                
+                <div class="code-block">
+// Array spread
+const arr1 = [1, 2, 3];
+const arr2 = [...arr1, 4, 5]; // [1, 2, 3, 4, 5]
+
+// Object spread
+const obj1 = {a: 1, b: 2};
+const obj2 = {...obj1, c: 3}; // {a: 1, b: 2, c: 3}
+
+// Clone and modify
+const updated = {...obj1, b: 10}; // {a: 1, b: 10}
+                </div>
+
+                <div class="interactive-demo">
+                    <label>Original array:</label>
+                    <input type="text" class="demo-input" id="spreadArr" value="1,2,3" placeholder="e.g., 1,2,3">
+                    
+                    <label>Additional items:</label>
+                    <input type="text" class="demo-input" id="spreadAdd" value="4,5" placeholder="e.g., 4,5">
+                    
+                    <button class="demo-button" onclick="runSpreadDemo()">Run Spread</button>
+                    
+                    <div class="demo-output" id="spreadOutput"></div>
+                </div>
+            </div>
+
+            <!-- TEMPLATE LITERALS -->
+            <div id="template-demo" class="demo-content" style="display:none;">
+                <p><strong>TEMPLATE LITERALS:</strong> Create strings with embedded expressions</p>
+                
+                <div class="code-block">
+// Without template literals
+const greeting = "Hello, " + name + "!";
+
+// With template literals (backticks)
+const greetingNew = `Hello, ${name}!`;
+
+// Multiline strings
+const bio = `
+    Name: ${user.name}
+    Email: ${user.email}
+    Role: ${user.role}
+`;
+                </div>
+
+                <div class="interactive-demo">
+                    <label>First name:</label>
+                    <input type="text" class="demo-input" id="tempFirst" value="Fiastara">
+                    
+                    <label>Last name:</label>
+                    <input type="text" class="demo-input" id="tempLast" value="Arthanev">
+                    
+                    <label>Title:</label>
+                    <input type="text" class="demo-input" id="tempTitle" value="Software Engineer">
+                    
+                    <button class="demo-button" onclick="runTemplateDemo()">Generate Bio</button>
+                    
+                    <div class="demo-output" id="templateOutput"></div>
+                </div>
+            </div>
+
+            <!-- DEFAULT PARAMETERS -->
+            <div id="defaults-demo" class="demo-content" style="display:none;">
+                <p><strong>DEFAULT PARAMETERS:</strong> Set default values for function arguments</p>
+                
+                <div class="code-block">
+// Without defaults
+function greet(name, age, role) {
+    console.log(`${name} is ${age} years old and works as ${role}`);
+}
+
+// With defaults
+function greetDefault(name = 'Anonymous', age = 18, role = 'User') {
+    console.log(`${name} is ${age} years old and works as ${role}`);
+}
+
+greetDefault(); // Uses all defaults
+greetDefault('John'); // Uses provided + defaults
+                </div>
+
+                <div class="interactive-demo">
+                    <label>Name (default: Anonymous):</label>
+                    <input type="text" class="demo-input" id="defName" placeholder="Leave empty for default">
+                    
+                    <label>Age (default: 18):</label>
+                    <input type="number" class="demo-input" id="defAge" placeholder="Leave empty for default">
+                    
+                    <label>Role (default: User):</label>
+                    <input type="text" class="demo-input" id="defRole" placeholder="Leave empty for default">
+                    
+                    <button class="demo-button" onclick="runDefaultsDemo()">Create User</button>
+                    
+                    <div class="demo-output" id="defaultsOutput"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- LEARNING PATH -->
+        <div class="learning-path">
+            <h4>🎓 Recommended Learning Path</h4>
+            <ol>
+                <li><strong>Start with Array Methods:</strong> Learn map, filter, reduce basics</li>
+                <li><strong>Understand Callbacks:</strong> How functions are passed and executed</li>
+                <li><strong>Arrow Functions:</strong> Modern syntax for writing functions</li>
+                <li><strong>Functional Programming:</strong> Pure functions and composition</li>
+                <li><strong>Advanced Patterns:</strong> Currying, memoization, higher-order functions</li>
+                <li><strong>Build Projects:</strong> Apply concepts to real-world scenarios</li>
+            </ol>
+        </div>
+
+        <!-- REAL-WORLD EXAMPLE -->
+        <div class="demo-section">
+            <h3>🎯 Real-World Example: Processing Student Data</h3>
+            
+            <p>Filter students with high average, sort by grade, and format names</p>
+            
+            <div class="code-block">
+const students = [
+    { name: 'Fiastara', scores: [85, 90, 88] },
+    { name: 'John', scores: [78, 82, 80] },
+    { name: 'Jane', scores: [92, 95, 89] }
+];
+
+// Calculate average
+const avg = (scores) => scores.reduce((s, v) => s + v, 0) / scores.length;
+
+// Process data
+const topStudents = students
+    .map(s => ({ ...s, average: avg(s.scores) }))
+    .filter(s => s.average >= 85)
+    .sort((a, b) => b.average - a.average)
+    .map(s => `${s.name} (${s.average.toFixed(1)})`);
+            </div>
+
+            <button class="demo-button" onclick="runRealWorldExample()">Run Example</button>
+            
+            <div class="demo-output" id="realWorldOutput"></div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Fiastara. All rights reserved.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/concepts.js"></script>
+    <script>
+        // Array Methods
+        function showArrayMethod(method, ev) {
+            const section = ev.target.closest('.demo-section');
+            if (!section) return;
+            section.querySelectorAll('.demo-content').forEach(el => el.style.display = 'none');
+            const target = section.querySelector('#' + method + '-demo');
+            if (target) target.style.display = 'block';
+            section.querySelectorAll('.concept-tab').forEach(tab => tab.classList.remove('active'));
+            ev.target.classList.add('active');
+        }
+
+        function runMapDemo() {
+            const input = document.getElementById('mapInput').value;
+            const factor = parseFloat(document.getElementById('mapFactor').value);
+            const numbers = input.split(',').map(n => parseFloat(n.trim()));
+            const result = numbers.map(n => n * factor);
+            document.getElementById('mapOutput').innerHTML = `
+                <strong>Input:</strong> [${numbers}]<br>
+                <strong>Multiply by ${factor}:</strong> [${result}]<br>
+                <strong>Code:</strong> numbers.map(n => n * ${factor})
+            `;
+        }
+
+        function runFilterDemo() {
+            const input = document.getElementById('filterInput').value;
+            const min = parseFloat(document.getElementById('filterMin').value);
+            const numbers = input.split(',').map(n => parseFloat(n.trim()));
+            const result = numbers.filter(n => n >= min);
+            document.getElementById('filterOutput').innerHTML = `
+                <strong>Input:</strong> [${numbers}]<br>
+                <strong>Keep only numbers ≥ ${min}:</strong> [${result}]<br>
+                <strong>Code:</strong> numbers.filter(n => n >= ${min})
+            `;
+        }
+
+        function runReduceDemo() {
+            const input = document.getElementById('reduceInput').value;
+            const op = document.getElementById('reduceOp').value;
+            const numbers = input.split(',').map(n => parseFloat(n.trim()));
+            
+            let result, code;
+            if (op === 'sum') {
+                result = numbers.reduce((a, b) => a + b, 0);
+                code = 'numbers.reduce((a, b) => a + b, 0)';
+            } else if (op === 'multiply') {
+                result = numbers.reduce((a, b) => a * b, 1);
+                code = 'numbers.reduce((a, b) => a * b, 1)';
+            } else {
+                result = numbers.reduce((a, b) => a + ',' + b);
+                code = 'numbers.reduce((a, b) => a + "," + b)';
+            }
+            
+            document.getElementById('reduceOutput').innerHTML = `
+                <strong>Input:</strong> [${numbers}]<br>
+                <strong>Result:</strong> ${result}<br>
+                <strong>Code:</strong> ${code}
+            `;
+        }
+
+        // Callbacks
+        function runCallbackDemo() {
+            const name = document.getElementById('callbackInput').value || 'Developer';
+            const messages = [];
+            
+            function greet(name, callback1, callback2) {
+                callback1(name);
+                callback2(name);
+            }
+
+            greet(name, 
+                (n) => messages.push(`✓ Hello, ${n}!`),
+                (n) => messages.push(`✓ Welcome back, ${n}!`)
+            );
+
+            document.getElementById('callbackOutput').innerHTML = `
+                <strong>Name entered:</strong> ${name}<br>
+                <strong>Callbacks executed:</strong><br>
+                ${messages.map(m => `→ ${m}`).join('<br>')}
+            `;
+        }
+
+        function runFormCallback() {
+            const name = document.getElementById('formName').value;
+            const email = document.getElementById('formEmail').value;
+            
+            function submitForm(data, onSuccess, onError) {
+                if (data.name && data.email) {
+                    onSuccess(data);
+                } else {
+                    onError('Please fill all fields');
+                }
+            }
+
+            submitForm(
+                { name, email },
+                (data) => {
+                    document.getElementById('formOutput').innerHTML = `
+                        <strong style="color: #6D9E51;">✓ Success!</strong><br>
+                        Name: ${data.name}<br>
+                        Email: ${data.email}<br>
+                        Form submitted successfully!
+                    `;
+                },
+                (error) => {
+                    document.getElementById('formOutput').innerHTML = `
+                        <strong style="color: #A82323;">✗ Error:</strong> ${error}
+                    `;
+                }
+            );
+        }
+
+        // Functional Programming
+        function showFPConcept(concept, ev) {
+            const section = ev.target.closest('.demo-section');
+            if (!section) return;
+            section.querySelectorAll('.demo-content').forEach(el => el.style.display = 'none');
+            const target = section.querySelector('#' + concept + '-demo');
+            if (target) target.style.display = 'block';
+            section.querySelectorAll('.concept-tab').forEach(tab => tab.classList.remove('active'));
+            ev.target.classList.add('active');
+        }
+
+        function runPureFunctionDemo() {
+            const a = parseFloat(document.getElementById('pureA').value);
+            const b = parseFloat(document.getElementById('pureB').value);
+            
+            const add = (x, y) => x + y;
+            const result = add(a, b);
+            
+            document.getElementById('pureOutput').innerHTML = `
+                <strong>Pure Function:</strong> add(${a}, ${b})<br>
+                <strong>Result:</strong> ${result}<br>
+                <strong>Note:</strong> Same inputs always produce ${result}
+            `;
+        }
+
+        function runCompositionDemo() {
+            const num = parseFloat(document.getElementById('composeNum').value);
+            
+            const add10 = (x) => x + 10;
+            const double = (x) => x * 2;
+            const pipe = (...fns) => (x) => fns.reduce((v, f) => f(v), x);
+            
+            const process = pipe(add10, double);
+            const result = process(num);
+            
+            document.getElementById('composeOutput').innerHTML = `
+                <strong>Starting value:</strong> ${num}<br>
+                <strong>After add10:</strong> ${add10(num)}<br>
+                <strong>After double:</strong> ${result}<br>
+                <strong>Final result:</strong> ${result}
+            `;
+        }
+
+        function runCurryingDemo() {
+            const a = parseFloat(document.getElementById('curry1').value);
+            const b = parseFloat(document.getElementById('curry2').value);
+            const c = parseFloat(document.getElementById('curry3').value);
+            
+            const curry = (x) => (y) => (z) => x * y * z;
+            const result = curry(a)(b)(c);
+            
+            document.getElementById('curryOutput').innerHTML = `
+                <strong>Curried multiply:</strong> curry(${a})(${b})(${c})<br>
+                <strong>Calculation:</strong> ${a} × ${b} × ${c}<br>
+                <strong>Result:</strong> ${result}
+            `;
+        }
+
+        // Real-world example
+        function runRealWorldExample() {
+            const students = [
+                { name: 'Fiastara', scores: [85, 90, 88] },
+                { name: 'John', scores: [78, 82, 80] },
+                { name: 'Jane', scores: [92, 95, 89] }
+            ];
+
+            const avg = (scores) => scores.reduce((s, v) => s + v, 0) / scores.length;
+
+            const topStudents = students
+                .map(s => ({ ...s, average: avg(s.scores) }))
+                .filter(s => s.average >= 85)
+                .sort((a, b) => b.average - a.average)
+                .map(s => `${s.name} (${s.average.toFixed(1)}%)`);
+
+            document.getElementById('realWorldOutput').innerHTML = `
+                <strong>Processing pipeline:</strong><br>
+                1. Calculate averages<br>
+                2. Filter students with ≥85%<br>
+                3. Sort by highest grade first<br>
+                4. Format names<br><br>
+                <strong>Top Students:</strong><br>
+                ${topStudents.map(s => `✓ ${s}`).join('<br>')}<br><br>
+                <strong>Concepts used:</strong> map, filter, sort, arrow functions, destructuring
+            `;
+        }
+
+        // Advanced Concepts
+        function showAdvanced(concept, ev) {
+            const section = ev.target.closest('.demo-section');
+            if (!section) return;
+            section.querySelectorAll('.demo-content').forEach(el => el.style.display = 'none');
+            const target = section.querySelector('#' + concept + '-demo');
+            if (target) target.style.display = 'block';
+            section.querySelectorAll('.concept-tab').forEach(tab => tab.classList.remove('active'));
+            ev.target.classList.add('active');
+        }
+
+        function runArrowDemo() {
+            const a = parseFloat(document.getElementById('arrow1').value);
+            const b = parseFloat(document.getElementById('arrow2').value);
+            
+            // Arrow functions
+            const add = (x, y) => x + y;
+            const multiply = (x, y) => x * y;
+            const subtract = (x, y) => x - y;
+            
+            const resultAdd = add(a, b);
+            const resultMul = multiply(a, b);
+            const resultSub = subtract(a, b);
+            
+            document.getElementById('arrowOutput').innerHTML = `
+                <strong>Arrow Functions - Math Operations:</strong><br>
+                <span class="success-message">✓ Add:</span> ${a} + ${b} = ${resultAdd}<br>
+                <span class="success-message">✓ Multiply:</span> ${a} × ${b} = ${resultMul}<br>
+                <span class="success-message">✓ Subtract:</span> ${a} - ${b} = ${resultSub}<br><br>
+                <strong>Syntax:</strong><br>
+                const add = (x, y) => x + y;
+            `;
+        }
+
+        function runSpreadDemo() {
+            try {
+                const arrStr = document.getElementById('spreadArr').value;
+                const addStr = document.getElementById('spreadAdd').value;
+                
+                const arr1 = arrStr.split(',').map(n => parseFloat(n.trim()));
+                const arr2 = addStr.split(',').map(n => parseFloat(n.trim()));
+                
+                const merged = [...arr1, ...arr2];
+                
+                document.getElementById('spreadOutput').innerHTML = `
+                    <strong>Spread Operator - Array Combination:</strong><br>
+                    <span class="success-message">✓ Original array:</span> [${arr1}]<br>
+                    <span class="success-message">✓ Additional:</span> [${arr2}]<br>
+                    <span class="success-message">✓ Merged result:</span> [${merged}]<br><br>
+                    <strong>Code:</strong> const merged = [...arr1, ...arr2];
+                `;
+            } catch (e) {
+                document.getElementById('spreadOutput').innerHTML = `<span class="error-message">✗ Error: Invalid input</span>`;
+            }
+        }
+
+        function runTemplateDemo() {
+            const first = document.getElementById('tempFirst').value || 'Unknown';
+            const last = document.getElementById('tempLast').value || 'Person';
+            const title = document.getElementById('tempTitle').value || 'Professional';
+            
+            const bio = `
+Name: ${first} ${last}
+Title: ${title}
+Bio: ${first} is an accomplished ${title.toLowerCase()} with expertise in multiple domains.
+Email: ${first.toLowerCase()}.${last.toLowerCase()}@example.com
+Member Since: 2024
+            `.trim();
+            
+            document.getElementById('templateOutput').innerHTML = `
+                <strong>Generated Bio:</strong><br>
+                <pre style="background-color: #f5f5f5; padding: 1rem; border-radius: 5px; overflow-x: auto;">${bio}</pre>
+                <strong>Template Literal Used:</strong><br>
+                <code>\`Name: \${first} \${last}\`</code>
+            `;
+        }
+
+        function runDefaultsDemo() {
+            const name = document.getElementById('defName').value || 'Anonymous';
+            const age = document.getElementById('defAge').value || '18';
+            const role = document.getElementById('defRole').value || 'User';
+            
+            const user = {
+                name: name,
+                age: parseInt(age),
+                role: role,
+                createdAt: new Date().toLocaleDateString()
+            };
+            
+            document.getElementById('defaultsOutput').innerHTML = `
+                <strong>User Created with Defaults:</strong><br>
+                <span class="success-message">✓ Name:</span> ${user.name}<br>
+                <span class="success-message">✓ Age:</span> ${user.age}<br>
+                <span class="success-message">✓ Role:</span> ${user.role}<br>
+                <span class="success-message">✓ Created:</span> ${user.createdAt}<br><br>
+                <strong>Code Pattern:</strong><br>
+                function createUser(name='Anonymous', age=18, role='User') {...}
+            `;
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            runMapDemo();
+            runRealWorldExample();
+        });
+    </script>
+</body>
+</html>

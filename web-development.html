@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Development - Fiastara's Projects</title>
+    <link rel="stylesheet" href="style/style.css">
+    <style>
+        .project-detail {
+            background-color: white;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .project-header {
+            background: linear-gradient(135deg, #A82323 0%, #492828 100%);
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .project-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .feature-card {
+            background-color: #FFF4EA;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #A82323;
+        }
+
+        .feature-card h4 {
+            color: #A82323;
+            margin-bottom: 0.5rem;
+        }
+
+        .tech-stack {
+            background-color: #f5f5f5;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+
+        .tech-stack h4 {
+            color: #492828;
+            margin-bottom: 1rem;
+        }
+
+        .tech-tag {
+            display: inline-block;
+            background-color: #A82323;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            margin: 0.5rem 0.5rem 0.5rem 0;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .stack-section {
+            margin-bottom: 2rem;
+        }
+
+        .stack-section h5 {
+            color: #492828;
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+
+        .project-showcase {
+            background: linear-gradient(135deg, #FFF4EA 0%, #f9f9f9 100%);
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+
+        .showcase-item {
+            margin-bottom: 2rem;
+        }
+
+        .showcase-item h5 {
+            color: #A82323;
+            margin-bottom: 0.5rem;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 0.75rem 1.5rem;
+            background-color: #6D9E51;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #A82323;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo-removebg">
+                <img src="src/logo-removebg.jpg" alt="Fiastara logo-removebg">
+            </div>
+            <ul>
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#skills">Skills</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section style="max-width: 1200px; margin: 100px auto 0; padding: 40px 2rem;">
+        <div class="project-header">
+            <h2>🌐 Web Development</h2>
+            <p>Building responsive and interactive websites for various clients</p>
+        </div>
+
+        <div class="project-detail">
+            <h3>Project Overview</h3>
+            <p>
+                I've built responsive websites using HTML, CSS, and JavaScript for various clients and projects. 
+                My expertise includes creating user-friendly web applications, implementing modern design patterns, 
+                and ensuring optimal performance across all devices. I focus on clean code, accessibility, and 
+                user experience to deliver high-quality web solutions.
+            </p>
+        </div>
+
+        <div class="project-detail">
+            <h3>🎯 Specializations</h3>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h4>Responsive Design</h4>
+                    <p>Create websites that work seamlessly on desktop, tablet, and mobile devices</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Frontend Development</h4>
+                    <p>Build interactive UIs with HTML, CSS, and JavaScript</p>
+                </div>
+                <div class="feature-card">
+                    <h4>API Integration</h4>
+                    <p>Connect web applications with backend services and third-party APIs</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Performance Optimization</h4>
+                    <p>Optimize loading times and overall web performance</p>
+                </div>
+                <div class="feature-card">
+                    <h4>SEO Optimization</h4>
+                    <p>Implement best practices for search engine visibility</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Web Accessibility</h4>
+                    <p>Ensure websites are accessible to all users including those with disabilities</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-detail">
+            <h3>🛠️ Technology Stack</h3>
+            <div class="tech-stack">
+                <div class="stack-section">
+                    <h5>Frontend Technologies</h5>
+                    <span class="tech-tag">HTML5</span>
+                    <span class="tech-tag">CSS3</span>
+                    <span class="tech-tag">JavaScript (ES6+)</span>
+                    <span class="tech-tag">Bootstrap</span>
+                    <span class="tech-tag">Responsive Design</span>
+                </div>
+                <div class="stack-section">
+                    <h5>Frameworks & Libraries</h5>
+                    <span class="tech-tag">React</span>
+                    <span class="tech-tag">jQuery</span>
+                    <span class="tech-tag">AJAX</span>
+                    <span class="tech-tag">REST APIs</span>
+                </div>
+                <div class="stack-section">
+                    <h5>Tools & Platforms</h5>
+                    <span class="tech-tag">Git</span>
+                    <span class="tech-tag">GitHub Pages</span>
+                    <span class="tech-tag">VS Code</span>
+                    <span class="tech-tag">Chrome DevTools</span>
+                    <span class="tech-tag">Figma</span>
+                </div>
+                <div class="stack-section">
+                    <h5>Backend Integration</h5>
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">Express.js</span>
+                    <span class="tech-tag">MongoDB</span>
+                    <span class="tech-tag">Firebase</span>
+                    <span class="tech-tag">Formspree</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-detail">
+            <h3>📁 Project Showcase</h3>
+            <div class="project-showcase">
+                <div class="showcase-item">
+                    <h5>🎓 Educational Portfolios</h5>
+                    <p>
+                        Created personal and professional portfolio websites showcasing skills, projects, and achievements. 
+                        These sites include interactive elements, smooth animations, and professional design systems.
+                    </p>
+                </div>
+                <div class="showcase-item">
+                    <h5>🛒 E-Commerce Platforms</h5>
+                    <p>
+                        Developed responsive e-commerce websites with product listings, shopping carts, and checkout 
+                        functionality. Implemented inventory management and order tracking systems.
+                    </p>
+                </div>
+                <div class="showcase-item">
+                    <h5>📱 Progressive Web Apps</h5>
+                    <p>
+                        Built progressive web applications that work offline and provide app-like experiences on mobile 
+                        devices. Implemented service workers and caching strategies.
+                    </p>
+                </div>
+                <div class="showcase-item">
+                    <h5>📊 Data Dashboard</h5>
+                    <p>
+                        Created interactive dashboards for displaying and analyzing data. Implemented real-time updates 
+                        and responsive visualizations.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-detail">
+            <h3>✨ Key Features in My Web Projects</h3>
+            <ul style="line-height: 2.2;">
+                <li>✓ <strong>Responsive Design:</strong> Mobile-first approach ensuring all devices are supported</li>
+                <li>✓ <strong>Performance:</strong> Optimized loading times and smooth user interactions</li>
+                <li>✓ <strong>Accessibility:</strong> WCAG compliant with semantic HTML and ARIA labels</li>
+                <li>✓ <strong>SEO:</strong> Proper metadata, structured data, and SEO best practices</li>
+                <li>✓ <strong>Security:</strong> HTTPS, input validation, and protection against common attacks</li>
+                <li>✓ <strong>Testing:</strong> Comprehensive testing across browsers and devices</li>
+                <li>✓ <strong>Documentation:</strong> Clean code with helpful comments and README files</li>
+                <li>✓ <strong>Version Control:</strong> Using Git for collaboration and code management</li>
+            </ul>
+        </div>
+
+        <div class="project-detail">
+            <h3>🎯 Development Best Practices</h3>
+            <ul style="line-height: 2.2;">
+                <li>🔍 <strong>Code Quality:</strong> Follow consistent coding standards and use linters</li>
+                <li>📚 <strong>DRY Principle:</strong> Don't Repeat Yourself - reuse components and functions</li>
+                <li>🎨 <strong>Design Systems:</strong> Create and maintain consistent design systems</li>
+                <li>⚡ <strong>Performance:</strong> Minimize file sizes and optimize load times</li>
+                <li>🔒 <strong>Security:</strong> Follow security best practices and keep dependencies updated</li>
+                <li>📱 <strong>Testing:</strong> Test on real devices and various browsers</li>
+                <li>🤝 <strong>Collaboration:</strong> Clear communication and documentation for team projects</li>
+                <li>🔄 <strong>Iteration:</strong> Continuously improve based on user feedback</li>
+            </ul>
+        </div>
+
+        <a href="index.html#projects" class="back-button">← Back to Projects</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Fiastara. All rights reserved.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
