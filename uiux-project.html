@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI/UX Design - Fiastara's Projects</title>
+    <link rel="stylesheet" href="style/style.css">
+    <style>
+        .project-detail {
+            background-color: white;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .project-header {
+            background: linear-gradient(135deg, #A82323 0%, #492828 100%);
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .project-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .feature-card {
+            background-color: #FFF4EA;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #A82323;
+        }
+
+        .feature-card h4 {
+            color: #A82323;
+            margin-bottom: 0.5rem;
+        }
+
+        .tech-stack {
+            background-color: #f5f5f5;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+
+        .tech-stack h4 {
+            color: #492828;
+            margin-bottom: 1rem;
+        }
+
+        .tech-tag {
+            display: inline-block;
+            background-color: #A82323;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            margin: 0.5rem 0.5rem 0.5rem 0;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .design-process {
+            background: linear-gradient(135deg, #FFF4EA 0%, #f9f9f9 100%);
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .process-step {
+            text-align: center;
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background-color: #A82323;
+            color: white;
+            border-radius: 50%;
+            line-height: 50px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .process-step h5 {
+            color: #492828;
+            margin-bottom: 0.5rem;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 0.75rem 1.5rem;
+            background-color: #6D9E51;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #A82323;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo-removebg">
+                <img src="src/logo-removebg.jpg" alt="Fiastara logo-removebg">
+            </div>
+            <ul>
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#skills">Skills</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section style="max-width: 1200px; margin: 100px auto 0; padding: 40px 2rem;">
+        <div class="project-header">
+            <h2>🎨 UI/UX Design</h2>
+            <p>Creating intuitive interfaces with emphasis on usability and aesthetics</p>
+        </div>
+
+        <div class="project-detail">
+            <h3>Project Overview</h3>
+            <p>
+                As a UI/UX designer, I've created numerous intuitive user interfaces using Figma, emphasizing usability 
+                and aesthetics. During my internship at Humanity First International, I designed web interfaces and 
+                navigation systems for their digital platform. I focus on understanding user needs and creating solutions 
+                that are both beautiful and functional.
+            </p>
+        </div>
+
+        <div class="project-detail">
+            <h3>Design Philosophy</h3>
+            <p>
+                My design approach is guided by:
+                <br><br>
+                🎯 <strong>User Centricity:</strong> Every design decision is based on user research and feedback<br>
+                ✨ <strong>Simplicity:</strong> Clean, minimal designs that reduce cognitive load<br>
+                🔄 <strong>Consistency:</strong> Unified design language across all interfaces<br>
+                ♿ <strong>Accessibility:</strong> Designed for all users, including those with disabilities<br>
+                📱 <strong>Responsiveness:</strong> Works seamlessly across all devices and screen sizes
+            </p>
+        </div>
+
+        <div class="project-detail">
+            <h3>🎯 Key Capabilities</h3>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h4>User Research</h4>
+                    <p>Conducted user interviews and surveys to understand pain points and needs</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Wireframing</h4>
+                    <p>Created detailed wireframes for website and application layouts</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Prototyping</h4>
+                    <p>Built interactive prototypes to test user flows and interactions</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Visual Design</h4>
+                    <p>Designed high-fidelity mockups with attention to typography and color theory</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Usability Testing</h4>
+                    <p>Conducted user tests and gathered feedback for iterative improvements</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Design Systems</h4>
+                    <p>Created comprehensive design systems and style guides</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-detail">
+            <h3>🛠️ Design Tools & Skills</h3>
+            <div class="tech-stack">
+                <h4>Tools & Technologies</h4>
+                <span class="tech-tag">Figma</span>
+                <span class="tech-tag">Adobe XD</span>
+                <span class="tech-tag">Wireframing</span>
+                <span class="tech-tag">Prototyping</span>
+                <span class="tech-tag">User Research</span>
+                <span class="tech-tag">Usability Testing</span>
+                <span class="tech-tag">Design Systems</span>
+                <span class="tech-tag">HTML/CSS</span>
+            </div>
+        </div>
+
+        <div class="project-detail">
+            <h3>🎨 Design Process</h3>
+            <div class="design-process">
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <h5>Discover</h5>
+                        <p>Research users and define project goals</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <h5>Define</h5>
+                        <p>Create user personas and information architecture</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <h5>Ideate</h5>
+                        <p>Brainstorm and sketch design concepts</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <h5>Design</h5>
+                        <p>Create wireframes and high-fidelity mockups</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">5</div>
+                        <h5>Test</h5>
+                        <p>Conduct usability tests and gather feedback</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">6</div>
+                        <h5>Iterate</h5>
+                        <p>Refine design based on user feedback</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-detail">
+            <h3>📊 Recent Projects</h3>
+            <ul style="line-height: 2;">
+                <li><strong>Humanity First International Platform:</strong> Designed responsive web interfaces using WordPress</li>
+                <li><strong>Mobile App UI:</strong> Created mobile application user interfaces during Nongsa SEZ internship</li>
+                <li><strong>E-commerce Platform:</strong> Designed product listing and checkout flows</li>
+                <li><strong>Admin Dashboard:</strong> Created intuitive admin panel for marketplace management</li>
+                <li><strong>Design System:</strong> Built comprehensive component library for consistency</li>
+            </ul>
+        </div>
+
+        <a href="index.html#projects" class="back-button">← Back to Projects</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Fiastara. All rights reserved.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+{
+  "name": "fiastara-portfolio",
+  "version": "1.0.0",
+  "description": "Fiastara Seikha Arthanev - Portfolio Website with ExpressJS and Handlebars",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": ["portfolio", "express", "handlebars", "nodejs"],
+  "author": "Fiastara Seikha Arthanev",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-handlebars": "^7.1.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}</content>
+<parameter name="filePath">c:\Users\Lenovo\OneDrive\Desktop\Batch 66 DW - Fiastara\Task 8 New\package.json

@@ -1,0 +1,58 @@
+<section id="contact" class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-4">Contact Me</h2>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="mb-4">
+                    <h3>Get In Touch</h3>
+                    <p class="mb-3">I'd love to hear from you! Feel free to reach out for collaborations, opportunities, or just to say hello.</p>
+
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt me-2" style="color: #95292D;"></i><strong>Location:</strong> South Tangerang City, Banten, Indonesia</p>
+                        <p><i class="fas fa-envelope me-2" style="color: #95292D;"></i><strong>Email:</strong> fiasseikha@gmail.com</p>
+                        <p><i class="fas fa-phone me-2" style="color: #95292D;"></i><strong>Phone:</strong> +62895327774755</p>
+                    </div>
+
+                    <div class="mt-4">
+                        <a href="https://www.linkedin.com/in/fiastara-arthanev/"
+                        class="btn btn-lg px-4 fw-bold"
+                        style="background-color: #95292D; color: white; border: none;">
+                        <i class="fab fa-linkedin me-2"></i>Connect on LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="contact-form">
+                    <h3>Send a Message</h3>
+                    <form action="/contact" method="POST">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="name" name="name" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="subject" class="form-label">Subject</label>
+                            <input type="text" class="form-control" id="subject" name="subject">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-lg px-4 fw-bold" style="background-color: #95292D; color: white; border: none;">
+                            <i class="fas fa-paper-plane me-2"></i>Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
