@@ -1,0 +1,859 @@
+/* ============================================================
+   FIASTARA PORTFOLIO - MAIN STYLESHEET
+   ExpressJS + Handlebars Version | Stage 6 Final Polish
+   ============================================================ */
+
+/* SECTION 1: CSS VARIABLES & ROOT STYLES */
+:root {
+    /* Colors */
+    --primary-color: #95292D;
+    --secondary-color: #E2B0A5;
+    --accent-color: #6D3871;
+    --dark-color: #1A3567;
+    --light-bg: #ffffff;
+    --light-gray: #f8f9fa;
+    --border-gray: #dee2e6;
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.12);
+    --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.09);
+    
+    /* Transitions */
+    --transition-smooth: all 0.3s ease;
+    --transition-fast: all 0.2s ease;
+}
+
+/* SECTION 2: GLOBAL STYLES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    color: var(--dark-color);
+    background-color: var(--light-bg);
+    padding-top: 80px;
+}
+
+/* SECTION 3: TYPOGRAPHY */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--dark-color);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+h2 {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+p {
+    margin-bottom: 1rem;
+    color: rgba(26, 53, 103, 0.9);
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: var(--transition-fast);
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+/* SECTION 4: HEADER & NAVIGATION */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(149, 41, 45, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-md);
+    z-index: 1000;
+    transition: var(--transition-smooth);
+}
+
+header:hover {
+    background: rgba(149, 41, 45, 0.98);
+    box-shadow: var(--shadow-lg);
+}
+
+header.scrolled {
+    background: rgba(149, 41, 45, 0.98);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Navbar Brand */
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    gap: 0.5rem;
+}
+
+.logo-img {
+    height: 45px;
+    width: auto;
+    display: block;
+    object-fit: contain;
+    transition: var(--transition-fast);
+}
+
+.navbar-brand:hover .logo-img {
+    transform: scale(1.05);
+}
+
+/* Navbar Navigation */
+.navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: var(--transition-fast);
+    margin: 0 0.25rem;
+    padding: 0.5rem 0.8rem !important;
+    border-radius: 5px;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: var(--secondary-color) !important;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Navbar Buttons */
+.navbar .btn {
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: var(--transition-fast);
+    padding: 0.6rem 1.2rem;
+}
+
+.btn-outline-light {
+    border-color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.btn-outline-light:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+/* Mobile Navbar Toggle */
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 0.25rem rgba(226, 176, 165, 0.25);
+}
+
+/* SECTION 5: SECTIONS & LAYOUT */
+section {
+    padding: 5rem 2rem;
+    background-color: var(--light-bg);
+}
+
+section:nth-child(even) {
+    background-color: #fbf7f5;
+}
+
+.container {
+    max-width: 1200px;
+    width: 100%;
+}
+
+/* Hero Section */
+#hero {
+    background: linear-gradient(135deg, var(--secondary-color) 0%, var(--light-bg) 100%);
+    min-height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#hero .row {
+    width: 100%;
+}
+
+#hero img {
+    object-fit: cover;
+    aspect-ratio: 1/1;
+    border: 8px solid var(--light-bg);
+    box-shadow: var(--shadow-xl);
+}
+
+#hero h1 {
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+#hero .lead {
+    font-size: 1.1rem;
+    color: var(--dark-color);
+    line-height: 1.8;
+    text-align: justify;
+    margin-bottom: 1.5rem;
+}
+
+#hero .mb-1 {
+    color: var(--dark-color);
+    font-size: 1rem;
+}
+
+#hero .btn-lg {
+    border-radius: 8px;
+    font-weight: 600;
+    transition: var(--transition-smooth);
+    min-width: 180px;
+}
+
+#hero .btn-lg:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Experience Section */
+#experience {
+    background-color: var(--light-bg);
+}
+
+#experience .experience-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.experience-card {
+    background-color: var(--light-bg);
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    border-left: 4px solid var(--primary-color);
+    transition: var(--transition-smooth);
+}
+
+.experience-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+}
+
+.experience-card h3 {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.experience-card strong {
+    color: var(--accent-color);
+    display: block;
+    margin-bottom: 0.8rem;
+}
+
+.experience-card p {
+    color: rgba(26, 53, 103, 0.85);
+    font-size: 0.95rem;
+}
+
+/* Skills Section */
+#skills {
+    background-color: #fbf7f5;
+}
+
+#skills .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.skill-category {
+    background-color: var(--light-bg);
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-smooth);
+}
+
+.skill-category:hover {
+    box-shadow: var(--shadow-lg);
+}
+
+.skill-category h3 {
+    color: var(--accent-color);
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+}
+
+.skill-category ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.skill-category li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border-gray);
+    color: var(--dark-color);
+    font-weight: 500;
+    transition: var(--transition-fast);
+}
+
+.skill-category li:last-child {
+    border-bottom: none;
+}
+
+.skill-category li:before {
+    content: "✓ ";
+    color: var(--primary-color);
+    font-weight: bold;
+    margin-right: 0.5rem;
+}
+
+/* Portfolio Section */
+#portfolio {
+    background-color: var(--light-bg);
+}
+
+#portfolio .portfolio-grid,
+.projects-section .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
+
+.portfolio-card {
+    background-color: var(--light-bg);
+    border: none;
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    transition: var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+}
+
+.portfolio-card h3 {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+}
+
+.portfolio-card p {
+    color: rgba(26, 53, 103, 0.85);
+    font-size: 0.95rem;
+    flex-grow: 1;
+}
+
+.portfolio-card .project-meta {
+    font-size: 0.85rem;
+    color: rgba(26, 53, 103, 0.7);
+    margin-bottom: 1rem;
+}
+
+.project-link {
+    display: inline-block;
+    padding: 0.7rem 1.5rem;
+    background-color: var(--primary-color);
+    color: var(--light-bg);
+    border-radius: 8px;
+    font-weight: 600;
+    transition: var(--transition-smooth);
+    margin-top: 1rem;
+}
+
+.project-link:hover {
+    background-color: var(--accent-color);
+    transform: translateX(4px);
+}
+
+/* Technologies */
+.technologies {
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.badge {
+    border-radius: 999px;
+    padding: 0.4rem 0.8rem;
+    background-color: rgba(149, 41, 45, 0.1);
+    color: var(--primary-color);
+    font-weight: 500;
+    font-size: 0.8rem;
+    transition: var(--transition-fast);
+}
+
+.badge:hover {
+    background-color: var(--primary-color);
+    color: var(--light-bg);
+}
+
+.badge .icon {
+    margin-right: 0.3rem;
+}
+
+/* Education Section */
+#education {
+    background-color: #fbf7f5;
+}
+
+#education .education-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.education-card {
+    background-color: var(--light-bg);
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    border-top: 4px solid var(--accent-color);
+    transition: var(--transition-smooth);
+}
+
+.education-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+}
+
+.education-card h3 {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.education-card p {
+    color: rgba(26, 53, 103, 0.85);
+}
+
+/* SECTION 6: CONTACT & FORMS */
+#contact {
+    background-color: var(--light-bg);
+}
+
+.contact-info {
+    background-color: #fbf7f5;
+    padding: 2rem;
+    border-radius: 12px;
+    margin: 1.5rem 0;
+}
+
+.contact-info p {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.contact-info i {
+    margin-right: 0.75rem;
+    font-size: 1.2rem;
+}
+
+.contact-form {
+    background-color: #fbf7f5;
+    padding: 2rem;
+    border-radius: 12px;
+}
+
+.form-label {
+    font-weight: 600;
+    color: var(--dark-color);
+    margin-bottom: 0.5rem;
+}
+
+.form-control,
+.form-select {
+    border: 1px solid var(--border-gray);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+    transition: var(--transition-fast);
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(149, 41, 45, 0.15);
+    outline: none;
+}
+
+.form-control::placeholder {
+    color: rgba(26, 53, 103, 0.5);
+}
+
+textarea.form-control {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* SECTION 7: BUTTONS */
+.btn {
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: var(--transition-smooth);
+    border: 2px solid transparent;
+    padding: 0.7rem 1.5rem;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--light-bg);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: var(--light-bg);
+    border-color: #6c757d;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #5a6268;
+    transform: translateY(-2px);
+}
+
+.btn-lg {
+    padding: 0.8rem 2rem;
+    max-width: 100%;
+}
+
+/* SECTION 8: MODALS & FORMS */
+.modal-content {
+    border-radius: 12px;
+    border: none;
+    box-shadow: var(--shadow-xl);
+}
+
+.modal-header {
+    background-color: var(--primary-color);
+    color: var(--light-bg);
+    border: none;
+    border-radius: 12px 12px 0 0;
+}
+
+.modal-header .btn-close {
+    filter: brightness(0) invert(1);
+}
+
+.modal-title {
+    font-weight: 700;
+}
+
+.form-check-input:checked {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.form-check-input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(149, 41, 45, 0.25);
+}
+
+/* SECTION 9: PROJECT PAGES */
+.projects-section {
+    background-color: var(--light-bg);
+}
+
+.project-detail-section {
+    background-color: var(--light-bg);
+    min-height: calc(100vh - 80px);
+}
+
+.project-detail-section .bg-light {
+    background-color: #fbf7f5 !important;
+    padding: 3rem;
+    border: 1px solid var(--border-gray);
+}
+
+.project-detail-section .bg-light img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+}
+
+.project-detail-section .project-meta {
+    font-size: 0.95rem;
+    color: rgba(26, 53, 103, 0.8);
+    margin-bottom: 0.5rem;
+}
+
+.project-detail-section strong {
+    color: var(--primary-color);
+}
+
+/* SECTION 10: FOOTER */
+footer {
+    background-color: var(--dark-color);
+    color: var(--light-bg);
+    padding: 2.5rem 2rem;
+    text-align: center;
+    border-top: 4px solid var(--primary-color);
+}
+
+footer p {
+    margin-bottom: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+footer .btn {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--light-bg);
+    margin-top: 1rem;
+}
+
+footer .btn:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: var(--dark-color);
+}
+
+/* SECTION 11: EMPTY STATES */
+.empty-state {
+    text-align: center;
+    padding: 3rem 2rem;
+    background-color: #fbf7f5;
+    border-radius: 12px;
+}
+
+.empty-state i {
+    font-size: 3rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+}
+
+.empty-state p {
+    color: rgba(26, 53, 103, 0.8);
+    font-size: 1.1rem;
+}
+
+/* SECTION 12: ERROR SECTION */
+.error-section {
+    background-color: var(--light-bg);
+    min-height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+}
+
+.error-section .bg-light {
+    background-color: #fbf7f5 !important;
+}
+
+.error-section h1 {
+    font-size: 5rem;
+    color: #dc3545;
+}
+
+.error-section h2 {
+    color: var(--primary-color);
+}
+
+/* SECTION 13: RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    body {
+        padding-top: 70px;
+    }
+
+    section {
+        padding: 3rem 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+
+    #hero {
+        padding: 2rem 1rem;
+    }
+
+    #hero h1 {
+        font-size: 2rem;
+    }
+
+    #hero .lead {
+        font-size: 0.95rem;
+    }
+
+    #hero .btn-lg {
+        width: 100%;
+        min-width: unset;
+    }
+
+    #portfolio .portfolio-grid,
+    .projects-section .portfolio-grid,
+    #experience .experience-grid,
+    #skills .skills-grid,
+    #education .education-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .navbar .btn {
+        font-size: 0.85rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .experience-card,
+    .education-card,
+    .skill-category {
+        padding: 1.5rem;
+    }
+
+    .project-detail-section .bg-light {
+        padding: 1.5rem;
+    }
+
+    .contact-form,
+    .contact-info {
+        padding: 1.5rem;
+    }
+
+    .modal-dialog {
+        margin: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    body {
+        font-size: 0.9rem;
+    }
+
+    section {
+        padding: 2rem 1rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.1rem;
+    }
+
+    .navbar-brand {
+        padding-right: 1rem;
+    }
+
+    .logo-img {
+        height: 35px;
+    }
+
+    header {
+        padding: 0.5rem 1rem;
+    }
+
+    .d-none.d-lg-flex {
+        display: none !important;
+    }
+
+    .row [class*="col-"] {
+        margin-bottom: 1rem;
+    }
+
+    .form-control,
+    .form-select,
+    .btn {
+        font-size: 0.9rem;
+        padding: 0.6rem 0.8rem;
+    }
+
+    .portfolio-card,
+    .experience-card,
+    .education-card,
+    .skill-category {
+        padding: 1.25rem;
+    }
+
+    footer {
+        padding: 1.5rem 1rem;
+    }
+
+    footer .btn {
+        width: 100%;
+    }
+}
+
+/* SECTION 14: PRINT STYLES */
+@media print {
+    header,
+    footer,
+    .btn,
+    form {
+        display: none;
+    }
+
+    section {
+        page-break-inside: avoid;
+        padding: 2rem 0;
+    }
+
+    .portfolio-card,
+    .experience-card,
+    .education-card {
+        box-shadow: none;
+        border: 1px solid #ccc;
+    }
+}
+
+/* SECTION 15: ACCESSIBILITY */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: more) {
+    :root {
+        --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.2);
+        --shadow-lg: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .portfolio-card,
+    .experience-card,
+    .education-card {
+        border: 2px solid var(--dark-color);
+    }
+}

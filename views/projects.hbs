@@ -1,10 +1,11 @@
 <section class="projects-section py-5">
     <div class="container">
         <h2 class="text-center mb-4">My Projects</h2>
+        <p class="text-center text-muted mb-4">Explore my portfolio of projects across various technologies and domains</p>
 
         <!-- Search and Filter -->
-        <div class="row mb-4">
-            <div class="col-md-6">
+        <div class="row mb-4 g-3">
+            <div class="col-md-5">
                 <input type="text" class="form-control" id="searchInput" placeholder="Search projects...">
             </div>
             <div class="col-md-3">
@@ -17,7 +18,7 @@
                     <option value="Other">Other</option>
                 </select>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <select class="form-select" id="statusFilter">
                     <option value="">All Status</option>
                     <option value="Completed">Completed</option>
@@ -28,35 +29,46 @@
         </div>
 
         <!-- Add Project Button -->
-        <div class="text-center mb-4">
-            <a href="/add-project" class="btn btn-primary">Add New Project</a>
+        <div class="text-center mb-5">
+            <a href="/add-project" class="btn btn-primary btn-lg">
+                <i class="fas fa-plus me-2"></i>Add New Project
+            </a>
         </div>
 
         <!-- Projects Grid -->
-        <div class="portfolio-grid">
-            {{#each projects}}
-                <article class="portfolio-card">
-                    <h3>{{title}}</h3>
-                    <p>{{description}}</p>
-                    <div class="project-meta mb-2">
-                        <small class="text-muted">
-                            <i class="fas fa-calendar me-1"></i>{{duration}} |
-                            <i class="fas fa-tag me-1"></i>{{category}}
-                        </small>
-                    </div>
-                    <div class="technologies mb-3">
-                        {{#each (slice formattedTechnologies 0 3)}}
-                            <span class="badge bg-secondary me-1">
-                                <i class="{{icon}}"></i>
-                            </span>
-                        {{/each}}
-                        {{#if (gt formattedTechnologies.length 3)}}
-                            <span class="badge bg-light text-dark">+{{subtract formattedTechnologies.length 3}} more</span>
-                        {{/if}}
-                    </div>
-                    <a href="/project-detail/{{id}}" class="project-link">View Project</a>
-                </article>
-            {{/each}}
-        </div>
+        {{#if projects}}
+            <div class="portfolio-grid">
+                {{#each projects}}
+                    <article class="portfolio-card">
+                        <h3>{{title}}</h3>
+                        <p>{{description}}</p>
+                        <div class="project-meta mb-2">
+                            <small class="text-muted">
+                                <i class="fas fa-calendar me-1"></i>{{duration}} |
+                                <i class="fas fa-tag me-1"></i>{{category}}
+                            </small>
+                        </div>
+                        <div class="technologies mb-3 d-flex flex-wrap">
+                            {{#each (slice formattedTechnologies 0 3)}}
+                                <span class="badge me-1 mb-1">
+                                    <i class="{{icon}} me-1"></i>{{name}}
+                                </span>
+                            {{/each}}
+                            {{#if (gt formattedTechnologies.length 3)}}
+                                <span class="badge bg-light text-dark me-1 mb-1">+{{subtract formattedTechnologies.length 3}} more</span>
+                            {{/if}}
+                        </div>
+                        <a href="/project-detail/{{id}}" class="project-link">
+                            <i class="fas fa-arrow-right me-2"></i>View Project
+                        </a>
+                    </article>
+                {{/each}}
+            </div>
+        {{else}}
+            <div class="empty-state">
+                <i class="fas fa-inbox"></i>
+                <p>No projects found. Try adjusting your filters or <a href="/add-project">add a new project</a>.</p>
+            </div>
+        {{/if}}
     </div>
 </section>
