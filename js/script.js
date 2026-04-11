@@ -1,3 +1,6 @@
+app.use(express.static("public"));
+app.use(express.urlencoded({ extended: true }));
+
 // Sticky header on scroll
 window.addEventListener('scroll', function() {
     const header = document.querySelector('header');

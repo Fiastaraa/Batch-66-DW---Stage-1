@@ -1,6 +1,27 @@
 // Routes for Fiastara Portfolio Website
 // This module defines all the routes for the Express application
 
+const express = require('express');
+const router = express.Router();
+
+router.get('/', (req, res) => {
+  res.render('home');
+});
+
+router.get('/add-project', (req, res) => {
+  res.render('add-project');
+});
+
+router.get('/project-detail/:id', (req, res) => {
+  const projectId = req.params.id;
+  // Fetch project data from your data source
+  // Then render the project detail page
+  res.render('project-detail', { projectId });
+});
+
+module.exports = router;
+
+
 // Import project data and helper functions
 const {
   getProjectById,
