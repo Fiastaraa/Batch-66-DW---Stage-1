@@ -1,0 +1,85 @@
+<section class="section-panel">
+  <div class="row g-4">
+    <div class="col-lg-5">
+      <div class="contact-card h-100 d-flex flex-column justify-content-between">
+        <div>
+          <p class="eyebrow mb-2">Bootstrap Flexbox Contact Page</p>
+          <h1 class="mb-3">Let's build something together</h1>
+          <p class="text-muted">
+            This page demonstrates a responsive contact layout, form handling,
+            server submission, and local storage draft recovery.
+          </p>
+        </div>
+
+        <div class="contact-details d-flex flex-column gap-3 mt-4">
+          <div class="contact-detail">
+            <span>Email</span>
+            <strong>hello@fiastara.dev</strong>
+          </div>
+          <div class="contact-detail">
+            <span>Location</span>
+            <strong>Jakarta, Indonesia</strong>
+          </div>
+          <div class="contact-detail">
+            <span>Saved Messages</span>
+            <strong>{{savedMessageCount}}</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-7">
+      <div class="content-card">
+        <div class="d-flex justify-content-between align-items-start gap-3 mb-3">
+          <div>
+            <h2 class="h4 mb-1">Contact Form</h2>
+            <p class="text-muted mb-0">A draft is automatically saved in localStorage while you type.</p>
+          </div>
+          <span class="badge text-bg-light border">Form Handling</span>
+        </div>
+
+        <form action="/contact" method="POST" id="contactForm" data-draft-key="fiastara-contact-draft" class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label" for="name">Name</label>
+            <input type="text" class="form-control" id="name" name="name" required />
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label" for="email">Email</label>
+            <input type="email" class="form-control" id="email" name="email" required />
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label" for="reason">Reason</label>
+            <select class="form-select" id="reason" name="reason" required>
+              <option value="">Choose one...</option>
+              <option value="Portfolio Website">Portfolio Website</option>
+              <option value="CRUD Practice">CRUD Practice</option>
+              <option value="Frontend Mentoring">Frontend Mentoring</option>
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label" for="budget">Budget</label>
+            <select class="form-select" id="budget" name="budget" required>
+              <option value="">Choose one...</option>
+              <option value="Student Project">Student Project</option>
+              <option value="Small Business">Small Business</option>
+              <option value="Custom Quote">Custom Quote</option>
+            </select>
+          </div>
+
+          <div class="col-12">
+            <label class="form-label" for="message">Message</label>
+            <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+          </div>
+
+          <div class="col-12 d-flex flex-wrap gap-2">
+            <button type="submit" class="btn btn-accent">Send message</button>
+            <button type="reset" class="btn btn-outline-dark" id="resetDraft">Clear draft</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,65 @@
+﻿[
+  {
+    "id": "1",
+    "title": "Client Campaign Dashboard",
+    "slug": "client-campaign-dashboard",
+    "client": "Atlas Media",
+    "category": "Data Dashboard",
+    "status": "Completed",
+    "startDate": "2026-01-06",
+    "endDate": "2026-02-18",
+    "budget": 4200,
+    "description": "Responsive analytics dashboard that combines campaign metrics, conversion summaries, and quick status cards in one clear interface.",
+    "details": "This project demonstrates Bootstrap layout, Express routing, Handlebars helpers, and dynamic rendering. The dashboard page was built to feel fast to scan on both mobile and desktop, with reusable cards and filtered project views.",
+    "technologies": ["HTML", "CSS", "Bootstrap", "JavaScript", "Express", "Handlebars"],
+    "featured": true,
+    "image": "/assets/project-placeholder.jpg",
+    "highlights": [
+      "Interactive KPI cards",
+      "Reusable project card partial",
+      "Async file-based CRUD storage"
+    ]
+  },
+  {
+    "id": "2",
+    "title": "Community App Landing Page",
+    "slug": "community-app-landing-page",
+    "client": "Nusa Connect",
+    "category": "Mobile App",
+    "status": "In Progress",
+    "startDate": "2026-03-01",
+    "endDate": "2026-04-26",
+    "budget": 2600,
+    "description": "Marketing site for a mobile product with contact funnel, feature storytelling, and device-focused presentation.",
+    "details": "The landing page uses semantic HTML sections, custom CSS variables, and Bootstrap flexbox utilities to keep the hero and contact blocks balanced across breakpoints. It also feeds the JavaScript lab page with realistic project data.",
+    "technologies": ["HTML", "CSS", "Bootstrap", "JavaScript", "Figma"],
+    "featured": true,
+    "image": "/assets/project-placeholder.jpg",
+    "highlights": [
+      "Mobile-first hero layout",
+      "Contact page with saved draft support",
+      "Project management workflow"
+    ]
+  },
+  {
+    "id": "3",
+    "title": "Portfolio CMS Prototype",
+    "slug": "portfolio-cms-prototype",
+    "client": "Studio Internal",
+    "category": "Web App",
+    "status": "Planning",
+    "startDate": "2026-04-10",
+    "endDate": "2026-05-20",
+    "budget": 1800,
+    "description": "Starter CMS concept for adding, editing, and deleting portfolio entries with simple server-rendered forms.",
+    "details": "This prototype is intentionally built with plain Express and Handlebars to make each moving piece easy to study. It covers CRUD actions, dynamic routes, form handling, and higher-order functions in both server and browser code.",
+    "technologies": ["JavaScript", "Express", "Handlebars", "Node.js"],
+    "featured": false,
+    "image": "/assets/project-placeholder.jpg",
+    "highlights": [
+      "Create, read, update, delete flow",
+      "Dynamic route detail pages",
+      "Simple JSON persistence"
+    ]
+  }
+]

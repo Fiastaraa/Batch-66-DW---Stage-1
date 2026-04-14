@@ -1,0 +1,64 @@
+[
+  {
+    "id": "project-1001",
+    "slug": "responsive-portfolio-website",
+    "title": "Responsive Portfolio Website",
+    "category": "Web Development",
+    "description": "A personal portfolio that combines Bootstrap layout, custom CSS, JavaScript interactivity, and reusable Handlebars sections.",
+    "technologies": [
+      "HTML",
+      "CSS",
+      "Bootstrap",
+      "JavaScript",
+      "Handlebars"
+    ],
+    "status": "Completed",
+    "year": 2026,
+    "challenge": "Present coursework topics in one polished application instead of scattered files.",
+    "solution": "Used a modular Express.js structure with reusable templates, helper functions, and a clean visual system.",
+    "isFeatured": true,
+    "createdAt": "2026-04-14T07:00:00.000Z",
+    "updatedAt": "2026-04-14T07:00:00.000Z"
+  },
+  {
+    "id": "project-1002",
+    "slug": "project-crud-dashboard",
+    "title": "Project CRUD Dashboard",
+    "category": "Backend Practice",
+    "description": "A lightweight CRUD workflow for adding, editing, reviewing, and deleting project entries with file-based storage.",
+    "technologies": [
+      "Express.js",
+      "Routing",
+      "Async/Await",
+      "JSON Storage"
+    ],
+    "status": "In Progress",
+    "year": 2026,
+    "challenge": "Create a beginner-friendly data workflow without adding a database setup burden.",
+    "solution": "Stored records in JSON files and wrapped every operation in async utility functions.",
+    "isFeatured": true,
+    "createdAt": "2026-04-14T07:10:00.000Z",
+    "updatedAt": "2026-04-14T07:10:00.000Z"
+  },
+  {
+    "id": "project-1003",
+    "slug": "contact-and-local-storage-lab",
+    "title": "Contact and Local Storage Lab",
+    "category": "Front-End Fundamentals",
+    "description": "A contact page with Bootstrap flexbox, form validation, draft persistence in localStorage, and dynamic rendering examples.",
+    "technologies": [
+      "Flexbox",
+      "Forms",
+      "Local Storage",
+      "Loops",
+      "Arrays"
+    ],
+    "status": "Completed",
+    "year": 2026,
+    "challenge": "Show multiple JavaScript concepts in a practical, easy-to-explain way.",
+    "solution": "Combined dynamic rendering, higher-order functions, and browser storage in one interactive page.",
+    "isFeatured": false,
+    "createdAt": "2026-04-14T07:20:00.000Z",
+    "updatedAt": "2026-04-14T07:20:00.000Z"
+  }
+]

@@ -1,0 +1,129 @@
+<section class="hero-panel mb-5">
+  <div class="row align-items-center g-4">
+    <div class="col-lg-7">
+      <span class="hero-chip mb-3 d-inline-flex">Single-folder learning project</span>
+      <h1 class="display-5 mb-3">Portfolio website, CRUD dashboard, and JavaScript lab in one Express app.</h1>
+      <p class="lead text-muted mb-4">
+        This example combines HTML, CSS, Bootstrap flexbox, contact form handling,
+        dynamic rendering, local storage, Handlebars templates, Express routing,
+        CRUD operations, async functions, and dynamic routes.
+      </p>
+
+      <div class="d-flex flex-wrap gap-3">
+        <a href="/projects" class="btn btn-accent btn-lg">Explore Projects</a>
+        <a href="/contact" class="btn btn-outline-dark btn-lg">Open Contact Page</a>
+      </div>
+    </div>
+
+    <div class="col-lg-5">
+      <div class="hero-photo-wrap">
+        <img src="/assets/fiastara.jpg" alt="Fiastara portrait" class="img-fluid hero-photo" />
+      </div>
+    </div>
+  </div>
+
+  <div class="row g-3 mt-4">
+    <div class="col-md-4">
+      <div class="stat-card">
+        <span>Total Projects</span>
+        <strong>{{stats.totalProjects}}</strong>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="stat-card">
+        <span>Completed Projects</span>
+        <strong>{{stats.completedProjects}}</strong>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="stat-card">
+        <span>Technology Tags</span>
+        <strong>{{stats.totalTechnologies}}</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-panel mb-5">
+  <div class="d-flex flex-column flex-lg-row justify-content-between gap-3 mb-4">
+    <div>
+      <p class="eyebrow mb-2">Featured Work</p>
+      <h2 class="mb-1">Project cards rendered with Handlebars</h2>
+      <p class="text-muted mb-0">This section uses `each`, `if`, and helper functions for formatting.</p>
+    </div>
+    <div class="align-self-lg-end">
+      <a href="/projects/new" class="btn btn-outline-dark">Create a new project</a>
+    </div>
+  </div>
+
+  <div class="row g-4">
+    {{#if (gt featuredProjects.length 0)}}
+      {{#each featuredProjects}}
+        {{> project-card}}
+      {{/each}}
+    {{else}}
+      <div class="col-12">
+        <div class="empty-state">
+          <h3 class="h4">No featured projects yet</h3>
+          <p class="text-muted mb-0">Create a project and mark it as featured to show it here.</p>
+        </div>
+      </div>
+    {{/if}}
+  </div>
+</section>
+
+<section class="section-panel mb-5">
+  <div class="row g-4">
+    <div class="col-lg-7">
+      <p class="eyebrow mb-2">JavaScript Fundamentals</p>
+      <h2 class="mb-3">Dynamic rendering playground</h2>
+      <p class="text-muted">
+        The cards below are created with arrays, objects, loops, functions,
+        conditionals, operators, and higher-order functions in
+        <code>public/js/app.js</code>.
+      </p>
+
+      <div class="row g-3" id="jsConceptGrid"></div>
+      <div class="summary-card mt-3" id="jsSummary"></div>
+      <div class="summary-card mt-3" id="objectMethodOutput"></div>
+    </div>
+
+    <div class="col-lg-5">
+      <div class="note-card mb-3">
+        <h3 class="h5">Local Storage Demo</h3>
+        <p class="text-muted">Write a quick note and it will stay in your browser until you remove it.</p>
+
+        <form id="noteForm" class="d-flex gap-2">
+          <input
+            type="text"
+            class="form-control"
+            id="noteInput"
+            placeholder="Example: Review project routing"
+            maxlength="100"
+          />
+          <button type="submit" class="btn btn-accent">Save</button>
+        </form>
+
+        <ul class="note-list mt-3 mb-0" id="noteList"></ul>
+      </div>
+
+      <div class="note-card">
+        <h3 class="h5">How localStorage is used here</h3>
+        <ul class="doc-list mb-0" id="storageDocs"></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-panel">
+  <div class="d-flex flex-column flex-lg-row justify-content-between gap-3 mb-4">
+    <div>
+      <p class="eyebrow mb-2">Async Example</p>
+      <h2 class="mb-1">Projects loaded from the API with async/await</h2>
+      <p class="text-muted mb-0">This preview comes from the `/api/projects` route and is rendered on the client.</p>
+    </div>
+    <a href="/projects" class="btn btn-outline-dark align-self-lg-end">See full list</a>
+  </div>
+
+  <div class="row g-4" id="asyncProjectList"></div>
+</section>

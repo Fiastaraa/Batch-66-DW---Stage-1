@@ -1,0 +1,27 @@
+<section class="section-panel">
+  <div class="d-flex flex-column flex-lg-row justify-content-between gap-3 mb-4">
+    <div>
+      <p class="eyebrow mb-2">CRUD Section</p>
+      <h1 class="mb-1">Project Dashboard</h1>
+      <p class="text-muted mb-0">
+        Use Create, Read, Update, and Delete routes to manage the portfolio data.
+      </p>
+    </div>
+    <a href="/projects/new" class="btn btn-accent align-self-lg-end">Add project</a>
+  </div>
+
+  <div class="row g-4">
+    {{#if (gt projects.length 0)}}
+      {{#each projects}}
+        {{> project-card}}
+      {{/each}}
+    {{else}}
+      <div class="col-12">
+        <div class="empty-state">
+          <h2 class="h4">No projects found</h2>
+          <p class="text-muted">Add your first project to start the CRUD flow.</p>
+        </div>
+      </div>
+    {{/if}}
+  </div>
+</section>
