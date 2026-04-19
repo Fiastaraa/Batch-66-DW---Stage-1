@@ -1,0 +1,31 @@
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h2 class="text-center mb-4">Edit Project</h2>
+            <form action="/projects/{{project.id}}?_method=PUT" method="POST">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" name="title" class="form-control" id="title" value="{{project.title}}" required>
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea name="description" class="form-control" id="description" rows="3">{{project.description}}</textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="image" class="form-label">Image URL</label>
+                    <input type="url" name="image" class="form-control" id="image" value="{{project.image}}">
+                </div>
+                <div class="mb-3">
+                    <label for="link" class="form-label">Project Link</label>
+                    <input type="url" name="link" class="form-control" id="link" value="{{project.link}}">
+                </div>
+                <div class="mb-3">
+                    <label for="tags" class="form-label">Tags (comma separated)</label>
+                    <input type="text" name="tags" class="form-control" id="tags" value="{{project.tags}}">
+                </div>
+                <button type="submit" class="btn btn-primary">Update Project</button>
+                <a href="/projects" class="btn btn-secondary">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>

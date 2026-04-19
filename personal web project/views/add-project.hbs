@@ -1,0 +1,31 @@
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h2 class="text-center mb-4">Add New Project</h2>
+            <form action="/projects" method="POST">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" name="title" class="form-control" id="title" required>
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea name="description" class="form-control" id="description" rows="3"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="image" class="form-label">Image URL</label>
+                    <input type="url" name="image" class="form-control" id="image">
+                </div>
+                <div class="mb-3">
+                    <label for="link" class="form-label">Project Link</label>
+                    <input type="url" name="link" class="form-control" id="link">
+                </div>
+                <div class="mb-3">
+                    <label for="tags" class="form-label">Tags (comma separated)</label>
+                    <input type="text" name="tags" class="form-control" id="tags">
+                </div>
+                <button type="submit" class="btn btn-primary">Add Project</button>
+                <a href="/projects" class="btn btn-secondary">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>

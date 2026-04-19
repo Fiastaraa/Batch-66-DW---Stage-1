@@ -1,0 +1,30 @@
+<div class="container py-5">
+    <h2 class="text-center mb-4">My Projects</h2>
+    <div class="text-center mb-4">
+        <a href="/projects/add" class="btn btn-success">Add New Project</a>
+    </div>
+    {{#if projects}}
+    <div class="row">
+        {{#each projects}}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                {{#if image}}
+                <img src="{{image}}" class="card-img-top" alt="{{title}}">
+                {{/if}}
+                <div class="card-body">
+                    <h5 class="card-title">{{title}}</h5>
+                    <p class="card-text">{{description}}</p>
+                    <a href="/project/{{id}}" class="btn btn-primary">View</a>
+                    <a href="/projects/{{id}}/edit" class="btn btn-warning">Edit</a>
+                    <form action="/projects/{{id}}?_method=DELETE" method="POST" class="d-inline">
+                        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    {{else}}
+    <p class="text-center">No projects yet. <a href="/projects/add">Add one</a></p>
+    {{/if}}
+</div>

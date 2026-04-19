@@ -1,0 +1,27 @@
+<div class="container py-5">
+    <section class="contact text-center">
+        <h2 class="section-title">Contact</h2>
+        <h3>Let's Connect</h3>
+        <p><i class="fas fa-map-marker-alt me-2" style="color: #95292D;"></i>South Tangerang City, Banten, Indonesia</p>
+        <p><i class="fas fa-envelope me-2" style="color: #95292D;"></i>fiasseikha@gmail.com</p>
+        <p><i class="fas fa-phone me-2" style="color: #95292D;"></i>+62 895-3277-4755</p>
+        <a href="https://www.linkedin.com/in/fiastara-arthanev/" class="btn btn-main mb-4" target="_blank">Visit LinkedIn</a>
+        
+        <form action="/contact" method="POST" class="mx-auto" style="max-width: 500px;">
+            <div class="mb-3">
+                <input type="text" name="name" class="form-control" placeholder="Name" required>
+            </div>
+            <div class="mb-3">
+                <input type="email" name="email" class="form-control" placeholder="Email" required>
+            </div>
+            <div class="mb-3">
+                <textarea name="message" class="form-control" rows="5" placeholder="Message" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-main">Send Message</button>
+        </form>
+        
+        {{#if success}}
+        <div class="alert alert-success mt-3">Message sent successfully!</div>
+        {{/if}}
+    </section>
+</div>
