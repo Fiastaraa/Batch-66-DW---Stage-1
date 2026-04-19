@@ -1,50 +1,24 @@
-CREATE TABLE "profile" (
-  "id" integer PRIMARY KEY,
-  "full_name" varchar,
-  "bio" text,
-  "avatar_url" varchar,
-  "social_links" json,
-  "created_at" timestamp
-);
-
 CREATE TABLE "projects" (
-  "id" integer PRIMARY KEY,
-  "title" varchar,
-  "description" text,
-  "thumbnail_url" varchar,
-  "demo_url" varchar,
-  "repo_url" varchar,
-  "tech_stack" varchar,
-  "created_at" timestamp
-);
-
-CREATE TABLE "blog_posts" (
-  "id" integer PRIMARY KEY,
-  "title" varchar,
-  "slug" varchar UNIQUE,
-  "content" text,
-  "cover_image" varchar,
-  "category_id" integer,
-  "author_id" integer,
-  "published_at" timestamp,
-  "status" varchar
-);
-
-CREATE TABLE "categories" (
-  "id" integer PRIMARY KEY,
-  "name" varchar,
-  "slug" varchar
+  "id" SERIAL PRIMARY KEY,
+  "slug" VARCHAR(255) UNIQUE NOT NULL,
+  "title" VARCHAR(255) NOT NULL,
+  "category" VARCHAR(100) NOT NULL,
+  "description" TEXT,
+  "technologies" TEXT[], -- PostgreSQL array type
+  "status" VARCHAR(50) NOT NULL DEFAULT 'Planning',
+  "year" INTEGER,
+  "challenge" TEXT,
+  "solution" TEXT,
+  "is_featured" BOOLEAN DEFAULT FALSE,
+  "created_at" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  "updated_at" TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE "contact_messages" (
-  "id" integer PRIMARY KEY,
-  "sender_name" varchar,
-  "sender_email" varchar,
-  "subject" varchar,
-  "message" text,
-  "sent_at" timestamp
+  "id" SERIAL PRIMARY KEY,
+  "sender_name" VARCHAR(255) NOT NULL,
+  "sender_email" VARCHAR(255) NOT NULL,
+  "subject" VARCHAR(255),
+  "message" TEXT NOT NULL,
+  "sent_at" TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
-
-ALTER TABLE "blog_posts" ADD FOREIGN KEY ("category_id") REFERENCES "categories" ("id") DEFERRABLE INITIALLY IMMEDIATE;
-
-ALTER TABLE "blog_posts" ADD FOREIGN KEY ("author_id") REFERENCES "profile" ("id") DEFERRABLE INITIALLY IMMEDIATE;

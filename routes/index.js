@@ -71,7 +71,10 @@ function buildFormModel(project = {}) {
     : [];
 
   return {
-    project,
+    project: {
+      ...project,
+      technologyInput: selectedTechnologies.join(", ")
+    },
     categories: CATEGORY_OPTIONS.map((value) => ({
       value,
       selected: value === project.category,
