@@ -1,4 +1,5 @@
 ﻿const express = require("express");
+const path = require("path");
 
 const {
   CATEGORY_OPTIONS,
@@ -12,6 +13,11 @@ const {
   getTechnologyBreakdown,
   updateProject,
 } = require("../src/projectStore");
+
+const {
+  createUser,
+  verifyPassword
+} = require("../src/userStore");
 
 const router = express.Router();
 
@@ -71,7 +77,10 @@ function buildFormModel(project = {}) {
     : [];
 
   return {
-    project,
+    project: {
+      ...project,
+      technologyInput: selectedTechnologies.join(", ")
+    },
     categories: CATEGORY_OPTIONS.map((value) => ({
       value,
       selected: value === project.category,
@@ -283,6 +292,54 @@ router.get("/javascript-lab", async (req, res, next) => {
   } catch (error) {
     next(error);
   }
+});
+
+// Auth routes
+router.get("/login", (req, res) => {
+  res.sendFile(path.join(__dirname, "../login.html"));
+});
+
+router.post("/login", async (req, res, next) => {
+  try {
+    const { email, password } = req.body;
+    const user = await verifyPassword(email, password);
+    if (user) {
+      req.session.user = user;
+      res.redirect("/");
+    } else {
+      res.redirect("/login?error=Invalid credentials");
+    }
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.get("/register", (req, res) => {
+  res.sendFile(path.join(__dirname, "../register.html"));
+});
+
+router.post("/register", async (req, res, next) => {
+  try {
+    const { username, email, password } = req.body;
+    const user = await createUser(username, email, password);
+    req.session.user = { id: user.id, username: user.username, email: user.email };
+    res.redirect("/");
+  } catch (error) {
+    if (error.code === '23505') { // Unique violation
+      res.redirect("/register?error=User already exists");
+    } else {
+      next(error);
+    }
+  }
+});
+
+router.post("/logout", (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      return res.redirect("/");
+    }
+    res.redirect("/");
+  });
 });
 
 router.use((req, res) => {
